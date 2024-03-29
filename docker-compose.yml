@@ -1,26 +1,26 @@
-version: '3.8'
+version: '3.8'  # Specifies the version of the Docker Compose file format
 
 services:
   postgres:
-    image: postgres
-    container_name: node_course_postgres_container
+    image: postgres  # Uses the official Postgres image from Docker Hub
+    container_name: node_course_postgres_container  # Names the container for easier reference
     environment:
-      POSTGRES_USER: nodejs_course_admin
-      POSTGRES_PASSWORD: my_password
-      POSTGRES_DB: nodejs_course_database
+      POSTGRES_USER: nodejs_course_admin  # Sets the default Postgres user
+      POSTGRES_PASSWORD: my_password  # Sets the password for the Postgres user
+      POSTGRES_DB: nodejs_course_database  # Creates a default database on container startup
     ports:
-      - "5432:5432"
+      - "5432:5432"  # Maps the default Postgres port from the container to the host
 
   pgadmin:
-    image: dpage/pgadmin4
-    container_name: node_course_pgadmin_container
+    image: dpage/pgadmin4  # Uses the official pgAdmin 4 image from Docker Hub
+    container_name: node_course_pgadmin_container  # Names the container for easier reference
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@example.com
-      PGADMIN_DEFAULT_PASSWORD: admin_password
-      PGADMIN_LISTEN_PORT: 8080
-      PGADMIN_SERVER_PORT: 5432
-      PGADMIN_SERVER_NAME: PostgreSQL
+      PGADMIN_DEFAULT_EMAIL: admin@example.com  # Sets the default email for pgAdmin login
+      PGADMIN_DEFAULT_PASSWORD: admin_password  # Sets the default password for pgAdmin login
+      PGADMIN_LISTEN_PORT: 8080  # The port on which pgAdmin listens for connections
+      PGADMIN_SERVER_PORT: 5432  # The port on which pgAdmin connects to the Postgres server
+      PGADMIN_SERVER_NAME: PostgreSQL  # A name for the Postgres server in pgAdmin
     ports:
-      - "8080:8080"
+      - "8080:8080"  # Maps the pgAdmin port from the container to the host
     depends_on:
-      - postgres
+      - postgres  # Ensures that the postgres service is started before pgAdmin
