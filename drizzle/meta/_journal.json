@@ -1,0 +1,13 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1711737243278,
+      "tag": "0000_daffy_impossible_man",
+      "breakpoints": true
+    }
+  ]
+}
